@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        {% block meta %}
+        {% endblock meta %}
+        <title>
+            {% if data is defined %}
+              {{ data.title }}
+            {% else %}
+              SCHOOL MANAGEMENT SYSTEM
+            {% endif %}
+        </title>
+        <!-- App favicon -->
+        <link rel="shortcut icon" href="{{url_for('static', filename='assets/logo/favicon/favicon-96x96.png')}}">
+        <!--Load default bootstrap and App Style-->
+        <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='vendors/bootstrap/css/bootstrap.min.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='vendors/bootstrap-icons/font/bootstrap-icons.css')}}">
+        <!--App Style-->
+        <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='app/app.css')}}">
+        <!--Custom style-->
+        {% block style %}
+        {% endblock style %}
+    </head>
+    <body>
+        <!--Full page layout-->
+        {% block content %}
+        {% endblock content %}
+        <!--Load default bootstrap script-->
+        <script src="{{ url_for('static', filename='vendors/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+        <!--Custom script-->
+        {% block script %}
+        {% endblock script %}
+    </body>
+</html>

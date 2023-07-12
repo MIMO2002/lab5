@@ -1,0 +1,78 @@
+/*
+Version: 1.0.0
+Author: Komroung
+Website: https://komroung.com/
+File: App Css File
+*/
+
+.auth-bg {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url("../assets/auth/auth_bg.jpeg");
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.auth-bg .auth-logo .logo {
+  margin: 0px auto;
+}
+.auth-bg .bg-overlay {
+  opacity: 0.75;
+}
+.overlay-text{
+  color: #000; /* white text color */
+  position: relative;
+  z-index: 1; /* put the text in front of the overlay */
+}
+.bg-overlay {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  top: 0;
+  opacity: 0.7;
+  background-color: #000;
+}
+.auth-bg .auth-cover-card .auth-bg {
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+.auth-img {
+  background-image: url("../assets/auth/login.jpeg");
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  width: 100%;
+}
+
+.form-floating-custom .form-floating-icon {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 20px;
+  width: 56px;
+  color: var(--bs-text-muted);
+}
