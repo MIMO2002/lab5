@@ -1,20 +1,21 @@
-#Use an official python runtime as a parent image
-FROM python:3.11.4-slim
+FROM amazonlinux:2
+RUN amazon-linux-extras install epel -y && \
+    yum update -y && \
+    yum install -y python3 python3-pip tzdata && \
+    ln -fs /usr/share/zoneinfo/Asia/Phnom_Penh /etc/localtime && \
+    rm -rf /var/cache/yum && \
+    yum clean all
 
-RUN apt-get update
-RUN ln -fs /usr/share/zoneinfo/Asia/Phnom_Penh /etc/localtime
-RUN dpkg-reconfigure -f noninteractive tzdata
-RUN apt-get update
+# Set Python version
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
 
-#Copy the current directory contents into container /
+# Copy the current directory contents into the container
 COPY . /app
 
 WORKDIR /app
 
-#Install any needed packages specified in requirements.txt
-RUN pip install --no-cache-dir -r requirements.txt
+# Install any needed packages specified in requirements.txt
+RUN pip3 install --no-cache-dir -r requirements.txt
 
-#Make port to the world outside this container
-EXPOSE 88
-
-CMD gunicorn --workers=13 --threads=6 -b 0.0.0.0:88 'run:app'
+CMD gunicorn --workers=4 -b 0.0.0.0:8080 'run:app'
